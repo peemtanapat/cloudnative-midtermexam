@@ -15,11 +15,6 @@ public class CourseService {
         return courseList;
     }
 
-    public Course findCourseByCourseCode(String courseCode) {
-        Course course = courseRepository.findCourseByCourseCode(courseCode).get();
-        return course;
-    }
-
     public Course findCourseByCourseId(int courseId) {
         Course course = courseRepository.findCourseByCourseId(courseId).get();
         return course;
