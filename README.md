@@ -10,7 +10,6 @@
 - JPA
 - DevTool
 - MySQL
-- Thymeleaf
 
 ### Prerequisites
 - Maven 
