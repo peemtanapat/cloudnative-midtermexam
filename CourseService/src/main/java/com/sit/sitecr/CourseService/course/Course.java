@@ -11,11 +11,11 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "courses")
-public class Course implements Serializable{
+public class Course implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int courseId;    
+    private int courseId;
     @NotBlank
     private String courseCode;
     @NotBlank
@@ -23,9 +23,10 @@ public class Course implements Serializable{
     @NotBlank
     private String lecturerName;
     @NotBlank
+    @Column(name = "serving_amount")
     private int servingAmountOfStudent;
     @NotBlank
-    @Column(updatable = true)
+    @Column(name = "enrolled_amount", updatable = true)
     private int amountOfEnrolledStudent;
 
     public Course() {
@@ -78,5 +79,5 @@ public class Course implements Serializable{
     public void increaseAmountOfEnrolledStudent() {
         this.amountOfEnrolledStudent = amountOfEnrolledStudent++;
     }
-            
+
 }
