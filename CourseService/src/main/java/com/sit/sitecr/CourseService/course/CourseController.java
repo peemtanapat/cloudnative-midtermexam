@@ -20,19 +20,15 @@ public class CourseController {
     @Autowired
     private CourseValidator courseValidator;
 
-    @RequestMapping(value = "/checkamount/{courseId}", method = RequestMethod.POST)
-    public ResponseEntity<Boolean> checkAvailableAmountOfStudent(Model model, @PathVariable("courseId") int courseId) {
+    @RequestMapping(value = "/getcourse/{courseId}", method = RequestMethod.GET)
+    public ResponseEntity<Course> checkAvailableAmountOfStudent(Model model, @PathVariable("courseId") int courseId) {
         Course course = courseService.findCourseByCourseId(courseId);
         boolean available = courseValidator.checkAvailableAmountOfStudent(course);
-        return new ResponseEntity<Boolean>(available, HttpStatus.OK);
+        if (available == false) {
+            return new ResponseEntity<Course>(course, HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<Course>(course, HttpStatus.OK);
     }
-
-//    @RequestMapping(value = "/enroll/{courseId}", method = RequestMethod.POST)
-//    public ResponseEntity<Boolean> checkAvailableAmountOfStudent(Model model, @PathVariable("courseId") int courseId) {
-//        Course course = courseService.findCourseByCourseId(courseId);
-//        boolean available = courseValidator.checkAvailableAmountOfStudent(course);
-//        return new ResponseEntity<Boolean>(available, HttpStatus.OK);
-//    }
 
     @RequestMapping(value = "/courses", method = RequestMethod.GET)
     public ResponseEntity<List<Course>> getCourseList(Model model) {
