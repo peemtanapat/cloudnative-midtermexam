@@ -9,20 +9,28 @@ import com.sit.sitecr.CourseService.course.Course;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-public class CourseValidator implements Validator{
+public class CourseValidator implements Validator {
 
     @Override
     public boolean supports(Class<?> aClass) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    public boolean checkAvailableAmountOfStudent(Course course) {
+        boolean available = true;
+        if (course.getServingAmountOfStudent() == course.getAmountOfEnrolledStudent()) {
+            available = false;
+        }
+        return available;
+    }
+
     @Override
     public void validate(Object object, Errors errors) {
-        
+
         Course course = (Course) object;
-        if(course.getServingAmountOfStudent() ==  course.getAmountOfEnrolledStudent()){
+        if (course.getServingAmountOfStudent() == course.getAmountOfEnrolledStudent()) {
             errors.rejectValue("message", "This course is full, please contact the office");
         }
     }
-    
+
 }
