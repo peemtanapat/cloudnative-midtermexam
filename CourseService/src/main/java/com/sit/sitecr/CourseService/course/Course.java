@@ -27,7 +27,7 @@ public class Course implements Serializable {
     private int servingAmountOfStudent;
     @NotBlank
     @Column(name = "enrolled_amount", updatable = true)
-    private int amountOfEnrolledStudent;
+    private int enrolledAmountOfStudent;
 
     public Course() {
     }
@@ -73,11 +73,11 @@ public class Course implements Serializable {
     }
 
     public int getAmountOfEnrolledStudent() {
-        return amountOfEnrolledStudent;
+        return enrolledAmountOfStudent;
     }
 
     public void increaseAmountOfEnrolledStudent() {
-        this.amountOfEnrolledStudent = amountOfEnrolledStudent++;
+        this.enrolledAmountOfStudent = enrolledAmountOfStudent++;
     }
 
 }
