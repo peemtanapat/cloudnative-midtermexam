@@ -1,0 +1,201 @@
+{
+	"info": {
+		"_postman_id": "96c4f0b6-ed8b-4a22-8be4-c7d7bd144832",
+		"name": "postman",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login by username and password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd9a1170-78b8-4f77-9f48-b7162b139a4f",
+						"exec": [
+							"pm.test(\"User1 is correct\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        var studentId = jsonData.studentId;",
+							"        var studentName = jsonData.studentName;",
+							"        var studentSurname = jsonData.studentSurname;",
+							"        var studentUsername = jsonData.username;",
+							"        pm.expect(studentId).to.eql(58130500010);",
+							"        pm.expect(studentName).to.eql(\"Kanisorn\");",
+							"        pm.expect(studentSurname).to.eql(\"Sutham\");",
+							"        pm.expect(studentUsername).to.eql(\"58130500010\");",
+							"        ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/login?username=58130500010&password=01000503185",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "58130500010"
+						},
+						{
+							"key": "password",
+							"value": "01000503185"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8080/login?username=58130500010&password=01000503185",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:8080/login?username=58130500010&password=01000503185",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"login"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "58130500010"
+								},
+								{
+									"key": "password",
+									"value": "01000503185"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Oct 2018 12:51:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"studentId\": 58130500010,\n    \"studentName\": \"Kanisorn\",\n    \"studentSurname\": \"Sutham\",\n    \"studentDepartment\": \"IT\",\n    \"studentFaculty\": \"SIT\",\n    \"studentYear\": 4,\n    \"username\": \"58130500010\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get CourseList",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2a0b7aa4-a50b-4c1a-8d54-1b55bf4e1608",
+						"exec": [
+							"pm.test(\"User1 is correct\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        var courseId = jsonData.courseId;",
+							"        var courseCode = jsonData.courseCode;",
+							"        var courseName = jsonData.courseName;",
+							"        var lecturerName =  jsonData.lecturerName;",
+							"        pm.expect(courseId).to.eql(1);",
+							"        pm.expect(courseCode).to.eql(\"INT492\");",
+							"        pm.expect(courseName).to.eql(\"Big Data Analytics\");",
+							"        pm.expect(lecturerName).to.eql(\"Dr.Praisan Padungweang\");",
+							"        ",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8090/course/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"course",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "http://localhost:8090/course/1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8090/course/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"course",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 21 Oct 2018 12:56:37 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"courseId\": 1,\n    \"courseCode\": \"INT492\",\n    \"courseName\": \"Big Data Analytics\",\n    \"lecturerName\": \"Dr.Praisan Padungweang\",\n    \"servingAmountOfStudent\": 30,\n    \"amountOfEnrolledStudent\": 0\n}"
+				}
+			]
+		}
+	]
+}
